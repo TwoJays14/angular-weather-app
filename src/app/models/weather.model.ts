@@ -1,44 +1,51 @@
-export interface Weather {
+// Define the interface for the "condition" object
+export interface Condition {
+  text: string;
   icon: string;
-  temperature: number;
-  location: string;
+  code: number;
 }
-export interface CurrentWeather {
-  cloud: number;
-  condition: {
-    code: number;
-    icon: string;
-    text: string;
-  };
-  feelslike_c: number;
-  feelslike_f: number;
-  gust_kph: number;
-  gust_mph: number;
-  humidity: number;
-  is_day: number;
-  last_updated: string;
+
+// Define the interface for the "location" object
+export interface Location {
+  name: string;
+  region: string;
+  country: string;
+  lat: number;
+  lon: number;
+  tz_id: string;
+  localtime_epoch: number;
+  localtime: string;
+}
+
+// Define the interface for the "current" object
+export interface Current {
   last_updated_epoch: number;
-  precip_in: number;
-  precip_mm: number;
-  pressure_in: number;
-  pressure_mb: number;
+  last_updated: string;
   temp_c: number;
   temp_f: number;
-  uv: number;
-  vis_km: number;
-  vis_miles: number;
+  is_day: number;
+  condition: Condition;
+  wind_mph: number;
+  wind_kph: number;
   wind_degree: number;
   wind_dir: string;
-  wind_kph: number;
-  wind_mph: number;
-  location: {
-    country: string;
-    lat: number;
-    localtime: string;
-    localtime_epoch: number;
-    lon: number;
-    name: string;
-    region: string;
-    tz_id: string;
-  };
+  pressure_mb: number;
+  pressure_in: number;
+  precip_mm: number;
+  precip_in: number;
+  humidity: number;
+  cloud: number;
+  feelslike_c: number;
+  feelslike_f: number;
+  vis_km: number;
+  vis_miles: number;
+  uv: number;
+  gust_mph: number;
+  gust_kph: number;
+}
+
+// Define the interface for the entire JSON data
+export interface WeatherData {
+  location: Location;
+  current: Current;
 }

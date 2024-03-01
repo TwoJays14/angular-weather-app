@@ -1,18 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, DoCheck, Input } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
-import { Weather } from '../../../../models/weather.model';
 import { HttpClientModule } from '@angular/common/http';
+import { Observable, map } from 'rxjs';
+import { AsyncPipe, DatePipe, JsonPipe, NgIf } from '@angular/common';
+import { WeatherData } from '../../../../models/weather.model';
 @Component({
   selector: 'app-weather-display',
   standalone: true,
-  imports: [MatIconModule, HttpClientModule],
+  imports: [MatIconModule, HttpClientModule, AsyncPipe, JsonPipe, NgIf, DatePipe],
   templateUrl: './weather-display.component.html',
   styleUrl: './weather-display.component.scss',
 })
 export class WeatherDisplayComponent {
-  weatherLocationDetails: Weather = {
-    location: 'New York',
-    icon: 'sunny',
-    temperature: 20,
-  };
+  @Input() weatherLocationDetails$!: Observable<WeatherData | null>;
+
+
+
 }

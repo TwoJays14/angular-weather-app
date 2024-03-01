@@ -1,9 +1,9 @@
-import { Component, DoCheck, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, DoCheck, Input } from '@angular/core';
 import { WeatherDisplayComponent } from './components/weather-display/weather-display.component';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { WeatherService } from '../../services/weather.service';
-import { CurrentWeather } from '../../models/weather.model';
-import { Observable, of } from 'rxjs';
+import { WeatherData } from '../../models/weather.model';
+import { Observable, catchError, of } from 'rxjs';
 
 @Component({
   selector: 'app-homepage',
@@ -13,23 +13,25 @@ import { Observable, of } from 'rxjs';
   templateUrl: './homepage.component.html',
   styleUrl: './homepage.component.scss',
 })
-export class HomepageComponent implements DoCheck {
+export class HomepageComponent {
   searchVal: string = '';
 
-  weatherDetails$!: Observable<CurrentWeather>;
+  weatherDetails$!: Observable<WeatherData | null>;
 
   constructor(private weatherService: WeatherService) {}
 
-  ngDoCheck(): void {
-      console.log('wather details:',this.weatherDetails$);
-  }
-
   searchDest(value: string) {
-    console.log('homepage component:', value);
+    console.log('serach value', value);
     this.searchVal = value;
 
-    this.weatherService.getCurrentWeather(value).pipe((data) => {
-      return (this.weatherDetails$ = data);
-    });
+    this.weatherService.getCurrentWeather(value).pipe(
+      catchError((error) => {
+        console.log('Error:', error);
+        return of(error);
+      }),
+      (data) => {
+        return (this.weatherDetails$ = data);
+      }
+    );
   }
 }

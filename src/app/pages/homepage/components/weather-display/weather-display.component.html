@@ -1,7 +1,20 @@
-<div class="weather-container">
-  <h1>{{ weatherLocationDetails.location }}</h1>
+<div
+  *ngIf="weatherLocationDetails$ | async as weatherData"
+  class="weather-container"
+>
   <div>
-    <mat-icon>{{ weatherLocationDetails.icon }}</mat-icon>
-    <p>{{ weatherLocationDetails.temperature }}&deg;C</p>
+    <h1>{{ weatherData.location.name }}</h1>
+    <div>
+      <mat-icon class="icon">sunny </mat-icon>
+      <p>{{ weatherData.current.temp_c }}&deg;C</p>
+    </div>
   </div>
+  <br />
+  <div>
+    <h1>{{ weatherData.location.localtime | date : "shortTime" }}</h1>
+    <div>
+      <p>{{ weatherData.location.localtime | date : "fullDate" }}</p>
+    </div>
+  </div>
+  <a routerLink="/">See More Details</a>
 </div>
