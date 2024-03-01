@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { Weather } from '../../../../models/weather.model';
+import { HttpClientModule } from '@angular/common/http';
 @Component({
   selector: 'app-weather-display',
   standalone: true,
-  imports: [MatIconModule],
+  imports: [MatIconModule, HttpClientModule],
   templateUrl: './weather-display.component.html',
   styleUrl: './weather-display.component.scss',
 })
