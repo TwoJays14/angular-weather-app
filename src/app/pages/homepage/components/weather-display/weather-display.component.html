@@ -2,15 +2,17 @@
   *ngIf="weatherLocationDetails$ | async as weatherData"
   class="weather-container"
 >
-  <div>
+  <div class="weather-card">
     <h1>{{ weatherData.location.name }}</h1>
     <div>
-      <mat-icon class="icon">sunny </mat-icon>
-      <p>{{ weatherData.current.temp_c }}&deg;C</p>
+      <!-- <mat-icon class="icon">sunny </mat-icon>
+       -->
+      <img src="../../../../../assets/sunny.svg" alt="sunny" />
+      <p>{{ weatherData.current.temp_c }}&deg;<span>c</span></p>
     </div>
   </div>
   <br />
-  <div>
+  <div class="weather-card">
     <h1>{{ weatherData.location.localtime | date : "shortTime" }}</h1>
     <div>
       <p>{{ weatherData.location.localtime | date : "fullDate" }}</p>

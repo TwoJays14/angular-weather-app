@@ -1,13 +1,25 @@
 form {
+  display: flex;
+  align-items: center;
+  position: relative;
+
   input {
     width: 500px;
-    padding-block: 0.5rem;
+    padding-block: 0.7rem;
     border: none;
+    border-radius: 1rem;
+    padding-left: 1rem;
+  }
+
+  input:focus {
+    outline: none;
   }
   button {
-    padding-block: 0.5rem;
-    padding-inline: 1rem;
+    background-color: transparent;
     border: none;
+    position: absolute;
+    right: 5px;
+    color: #6e6d7a;
     cursor: pointer;
   }
 }
