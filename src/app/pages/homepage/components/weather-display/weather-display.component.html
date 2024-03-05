@@ -18,5 +18,5 @@
       <p>{{ weatherData.location.localtime | date : "fullDate" }}</p>
     </div>
   </div>
-  <a routerLink="/">See More Details</a>
+  <a routerLink="/" (click)="changeModal()">See More Details</a>
 </div>

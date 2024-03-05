@@ -1,0 +1,82 @@
+.main-container {
+  article {
+    display: grid;
+    grid-template-columns: 0.5fr 1fr 1fr 1fr 1fr;
+    grid-template-areas:
+      "temp temp wind  precip precip "
+      "temp temp snow1 vis humid"
+      "chanceRain chanceRain  uv sunriseSunset sunriseSunset"
+      "chanceRain chanceRain gust sunriseSunset sunriseSunset";
+    grid-template-rows: repeat(4, auto);
+    gap: 1rem;
+    padding: 1rem;
+    position: relative;
+    align-items: center;
+    width: 1000px;
+    height: 70vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 1rem;
+
+    > div {
+      text-align: center;
+      height: 100%;
+      border-radius: 1rem;
+    }
+
+    .temp {
+      grid-area: temp;
+      background-color: red;
+    }
+
+    .wind {
+      grid-area: wind;
+      background-color: blue;
+    }
+
+    .precip {
+      grid-area: precip;
+      background-color: green;
+    }
+
+    .snow1 {
+      grid-area: snow1;
+      background-color: orange;
+    }
+
+    .vis {
+      grid-area: vis;
+      background-color: white;
+    }
+
+    .humid {
+      grid-area: humid;
+      background-color: grey;
+    }
+
+    .chanceRain {
+      grid-area: chanceRain;
+      background-color: teal;
+    }
+
+    .uv {
+      grid-area: uv;
+      background-color: azure;
+    }
+
+    .sunriseSunset {
+      grid-area: sunriseSunset;
+      background-color: blueviolet;
+    }
+
+    .gust {
+      grid-area: gust;
+      background-color: #fff;
+    }
+  }
+  .close-modal {
+    position: absolute;
+    left: 50%;
+    cursor: pointer;
+    margin-top: 1rem;
+  }
+}

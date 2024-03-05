@@ -1,0 +1,18 @@
+<div
+  *ngIf="weatherLocationDetails$ | async as weatherData"
+  class="main-container"
+>
+  <article>
+    <div class="temp">{{ weatherData.current.temp_c }}</div>
+    <div class="wind">{{ weatherData.current.wind_kph }}</div>
+    <div class="precip">{{ weatherData.current.precip_mm }}</div>
+    <div class="snow1">{{ weatherData.current.condition.text }} Condition</div>
+    <div class="vis">{{ weatherData.current.vis_miles }}</div>
+    <div class="humid">{{ weatherData.current.vis_miles }}</div>
+    <div class="chanceRain"></div>
+    <div class="uv">{{ weatherData.current.uv }}</div>
+    <div class="sunriseSunset"></div>
+    <div class="gust">{{ weatherData.current.gust_mph }}</div>
+  </article>
+  <mat-icon class="close-modal" (click)="changeModal()">close</mat-icon>
+</div>

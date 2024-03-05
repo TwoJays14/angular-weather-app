@@ -17,8 +17,5 @@ export class WeatherService {
     return this.http.get<WeatherData>(
       this.baseUrl + `current.json?key=${this.apiKey}&q=${location}`
     );
-
-
-    
   }
 }

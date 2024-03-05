@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { HomepageComponent } from './pages/homepage/homepage.component';
 
-
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -13,7 +12,5 @@ import { HomepageComponent } from './pages/homepage/homepage.component';
 })
 export class AppComponent {
 
-
-
-  title = 'angular-weather-app';
+ 
 }

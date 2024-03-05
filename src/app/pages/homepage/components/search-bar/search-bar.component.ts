@@ -15,7 +15,7 @@ export class SearchBarComponent {
 
   destination: string = '';
 
-  search() {
+  search(): void {
     console.log(this.destination);
     this.searchValue.emit(this.destination);
   }

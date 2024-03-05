@@ -1,4 +1,14 @@
+<div *ngIf="!(showModal | async) ">
+  <app-search-bar
+    class="search-bar"
+    (searchValue)="searchDest($event)"
+  ></app-search-bar>
+  <app-weather-display
+    [weatherLocationDetails$]="weatherDetails$"
+  ></app-weather-display>
+</div>
 
-  <app-search-bar class="search-bar" (searchValue)="searchDest($event)"  ></app-search-bar>
-  <app-weather-display [weatherLocationDetails$]="weatherDetails$" ></app-weather-display>
-
+<app-modal
+  *ngIf="showModal | async"
+  [weatherLocationDetails$]="weatherDetails$"
+></app-modal>

@@ -1,9 +1,18 @@
-import { Component, DoCheck, Input, Pipe, PipeTransform } from '@angular/core';
+import {
+  Component,
+  DoCheck,
+  EventEmitter,
+  Input,
+  Output,
+  Pipe,
+  PipeTransform,
+} from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { HttpClientModule } from '@angular/common/http';
 import { Observable, map } from 'rxjs';
 import { AsyncPipe, DatePipe, JsonPipe, NgIf } from '@angular/common';
 import { WeatherData } from '../../../../models/weather.model';
+import { UiService } from '../../../../services/ui.service';
 // import { CustomPipe } from '../../../../pipes/custom-pipe.pipe';
 
 // @Pipe({
@@ -36,7 +45,9 @@ import { WeatherData } from '../../../../models/weather.model';
 export class WeatherDisplayComponent {
   @Input() weatherLocationDetails$!: Observable<WeatherData | null>;
 
-  constructor() {}
+  constructor(private uiService: UiService) {}
 
-  
+  changeModal() {
+    this.uiService.toggleModal(true);
+  }
 }
