@@ -22,10 +22,11 @@ import { AsyncPipe, NgIf } from '@angular/common';
   templateUrl: './homepage.component.html',
   styleUrl: './homepage.component.scss',
 })
-export class HomepageComponent {
+export class HomepageComponent implements DoCheck {
   searchVal: string = '';
 
   weatherDetails$!: Observable<WeatherData | null>;
+  weatherDetails!: WeatherData;
 
   showModal: Observable<boolean> = this.uiService.modalValue$.pipe(
     (show) => (this.showModal = show)
@@ -36,9 +37,17 @@ export class HomepageComponent {
     private uiService: UiService
   ) {}
 
+  ngDoCheck(): void {
+    console.log(this.weatherDetails);
+  }
+
   searchDest(value: string): void {
     console.log('serach value', value);
     this.searchVal = value;
+
+    this.weatherService.getCurrentWeather(value).subscribe((data) => {
+      this.weatherDetails = data;
+    });
 
     this.weatherService.getCurrentWeather(value).pipe(
       catchError((error) => {

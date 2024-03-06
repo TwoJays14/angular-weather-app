@@ -21,56 +21,105 @@
       text-align: center;
       height: 100%;
       border-radius: 1rem;
+      background: rgba(47, 46, 46, 0.27);
+      box-shadow: 0 4px 30px rgb(114, 114, 114);
+      backdrop-filter: blur(7px);
     }
 
     .temp {
       grid-area: temp;
-      background-color: red;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      h4 {
+        font-size: 2rem;
+      }
+      h6 {
+        font-size: 8rem;
+        font-weight: bold;
+      }
+      img {
+        width: 100%;
+      }
+      div {
+        display: flex;
+        align-items: center;
+        font-size: 8rem;
+        margin-inline: 1rem;
+        gap: 8px;
+        font-weight: bold;
+        margin-top: 1rem;
+        text-align: center;
+      }
     }
 
     .wind {
       grid-area: wind;
-      background-color: blue;
+
+      h4 {
+        margin-top: 1rem;
+        font-size: 2rem;
+        color: white;
+      }
+
+      div {
+        display: flex;
+        justify-content: center;
+
+        p {
+          font-size: 5rem;
+          color: white;
+          font-weight: bold;
+          margin-top: 1rem;
+          span {
+            font-size: 1rem;
+            font-weight: 400;
+            display: block;
+          }
+        }
+        div {
+          display: flex;
+          flex-flow: column nowrap;
+          align-items: center;
+          img {
+            width: 100%;
+            filter: brightness(0) invert(1);
+          }
+        }
+      }
     }
 
     .precip {
       grid-area: precip;
-      background-color: green;
     }
 
     .snow1 {
       grid-area: snow1;
-      background-color: orange;
     }
 
     .vis {
       grid-area: vis;
-      background-color: white;
     }
 
     .humid {
       grid-area: humid;
-      background-color: grey;
     }
 
     .chanceRain {
       grid-area: chanceRain;
-      background-color: teal;
     }
 
     .uv {
       grid-area: uv;
-      background-color: azure;
     }
 
     .sunriseSunset {
       grid-area: sunriseSunset;
-      background-color: blueviolet;
     }
 
     .gust {
       grid-area: gust;
-      background-color: #fff;
     }
   }
   .close-modal {

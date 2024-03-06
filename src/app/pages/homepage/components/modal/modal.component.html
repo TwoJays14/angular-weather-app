@@ -3,8 +3,31 @@
   class="main-container"
 >
   <article>
-    <div class="temp">{{ weatherData.current.temp_c }}</div>
-    <div class="wind">{{ weatherData.current.wind_kph }}</div>
+    <div class="temp">
+      <h4>Now</h4>
+      <div>
+        <h6>{{ weatherData.current.temp_c }}&deg;</h6>
+
+        <img
+          src="{{ weatherData.current.condition.icon }}"
+          alt="weather condition"
+        />
+      </div>
+    </div>
+    <div class="wind">
+      <h4>Wind</h4>
+
+      <div>
+        <p>
+          {{ weatherData.current.wind_kph }}
+        </p>
+        <div>
+          <img src="../../../../../assets/wind.png" alt="wind" /><span
+            >km/h</span
+          >
+        </div>
+      </div>
+    </div>
     <div class="precip">{{ weatherData.current.precip_mm }}</div>
     <div class="snow1">{{ weatherData.current.condition.text }} Condition</div>
     <div class="vis">{{ weatherData.current.vis_miles }}</div>
